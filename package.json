@@ -1,0 +1,36 @@
+{
+  "name": "the-bias-news-bot",
+  "version": "1.0.0",
+  "description": "A twitter bot created to encourage people to do some fact-checking when posting articles from certain news sites",
+  "main": "bot.js",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "prettyjson": "^1.1.3",
+    "twit": "^2.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurenbenichou/the-bias-news-bot.git"
+  },
+  "keywords": [
+    "twitter",
+    "twitter-bot",
+    "bot",
+    "news"
+  ],
+  "engines": {
+    "node": "0.12.14"
+  },
+
+  "author": "Lo Benichou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laurenbenichou/the-bias-news-bot/issues"
+  },
+  "homepage": "https://github.com/laurenbenichou/the-bias-news-bot#readme"
+}
