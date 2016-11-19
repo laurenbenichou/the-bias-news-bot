@@ -1,6 +1,13 @@
 var Twit = require( 'twit' );
 var DotEnv = require('dotenv').config();
 var prettyjson = require('prettyjson');
+var Tabletop = require( 'tabletop' );
+
+Tabletop.init({
+	key: process.env.DATA_SHEET,
+	callback: function( data, tabletop ) { console.log( data ); },
+	simpleSheet: true
+});
 
 var T = new Twit({
 	consumer_key:         process.env.TWIT_KEY,
@@ -11,22 +18,22 @@ var T = new Twit({
 })
 
 var options = { track: ['rawstory com', 'infowars com', 'breitbart com', 'prisonplanet com'] };
-var domains = ['rawstory', 'infowars', 'breitbart', 'prisonplanet'];
+var domains = ['rawstory.com', 'infowars.com', 'breitbart.com', 'prisonplanet.com'];
 var regexDomains = new RegExp( domains.join('|') );
-var stream = T.stream( 'statuses/filter', options);
+// var stream = T.stream( 'statuses/filter', options);
 
-stream.on( 'tweet', function( tweet ) {
-	if ( tweet.entities.urls[0] !== undefined ) {
-		if ( tweet.entities.urls[0].expanded_url !== null ) {
-			if ( regexDomains.test( tweet.entities.urls[0].expanded_url ) ){
-				console.log( tweet.entities.urls[0].expanded_url );
-			}
-		}
+// stream.on( 'tweet', function( tweet ) {
+// 	if ( tweet.entities.urls[0] !== undefined ) {
+// 		if ( tweet.entities.urls[0].expanded_url !== null ) {
+// 			if ( regexDomains.test( tweet.entities.urls[0].expanded_url ) ){
+// 				console.log( tweet );
+// 			}
+// 		}
 
-	}
+// 	}
 
-});
+// });
 
-stream.on( 'error', function( error ) {
-	console.log( error );
-});
+// stream.on( 'error', function( error ) {
+// 	console.log( error );
+// });
